@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name=”description” content="A paint program written in JavaScript, based on chapter 19 of Eloquent JavaScript"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Ellie Nguyen">
+    <meta property="og:site_name" content="Paint - Ellie Nguyen"/>
+    <meta property="og:image" content="https://scontent-atl3-1.xx.fbcdn.net/v/t31.0-8/15723661_1534358443246349_5451002159342390585_o.jpg?oh=ee7ef197bf0e79ca2261afdee681d6a1&oe=596464F1">
+    <meta property="og:description" content="A JavaScript version of Conway's Game of Life, a 'cellular automaton' invented by Cambridge mathematician John Conway."/>
+    <!--<meta property="og:image" content="">-->
+    <meta property="og:url" content="http://ellienguyen.github.io/paint-program">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!--<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <title>Paint Program - Ellie Nguyen</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <a class="navbar-brand" href="http://web.stanford.edu/~cdebs/GameOfLife/">
+        Paint Program
+    </a>
+</nav>
+<div class="container">
+    <div class="row main-content">
+        <div class="col-xs-12 col-md-8">
+            <div class="canvas-wrapper">
+                <canvas width="500" height="500" id = "respondCanvas">
+
+                </canvas>
+            </div>
+            <div id = "temp-rectangle"></div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <form>
+                <div class="form-group">
+                    <label for="tool-select">Tool:&nbsp;</label>
+                    <select class="custom-select" id = "tool-select">
+                        <option value="line">Line</option>
+                        <option value="erase">Erase</option>
+                        <option value="text">Text</option>
+                        <option value="spray">Spray</option>
+                        <option value="rectangle">Rectangle</option>
+                        <option value="colorPicker">Color picker</option>
+                        <option value="fill">Fill</option>
+                        <option value="clear">Clear fill</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="color-picker">Color:&nbsp;</label>
+                    <input type="color" name="favcolor" value="#000000" id = "color-picker">
+                </div>
+                <div class="btn-group" role="group" aria-label="fill-panel" id = "fill-panel">
+                    <button type="button" class="btn btn-secondary" id = "fill">Fill</button>
+                    <button type="button" class="btn btn-secondary" id= "clear">Clear</button>
+                </div>
+                <div class="form-group">
+                    <label for ="brush-size">Brush size:&nbsp;</label>
+                    <input class="form-control" id="brush-size" type="range" min="1" max="30" step="2"/>
+                </div>
+                <div class="form-group">
+                    <label for ="opacity">Opacity:&nbsp;</label>
+                    <input class="form-control" id="opacity" type="range" min="0" max="1" step="0.1"/>
+                </div>
+                <div class="form-group">
+                    <label for="file-input">Open file</label>
+                    <input type="file" class="form-control-file" id="file-input" aria-describedby="fileHelp">
+                </div>
+                <div class="form-group">
+                    <label for="url-input">Open URL</label>
+                    <input type="url" class="form-control" id="url-input">
+                    <button type="submit" class="btn btn-secondary btn-sm mt-1" id = "load">Load</button>
+                </div>
+                <a href="#" id = "save">
+                    <button type="button" class="btn btn-primary">Save</button>
+                </a>
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+<script src="script.js"></script>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+</html>
