@@ -23,7 +23,7 @@ Color.prototype.equal = function (otherColor) {
 };
 
 function approxEqual(first, second) {
-    return Math.abs(first - second) < 15;
+    return Math.abs(first - second) < 40;
 };
 
 var canvas = document.querySelector("canvas");
@@ -284,6 +284,12 @@ function floodFill(vector, targetColor, replaceColor, cx) {
     west = xIndex;
     east = xIndex + 1;
     while (west >= 0 && colorFromPixel(cx, new Vector(west, yIndex)).equal(replaceColor)) {
+        if (!colorFromPixel(cx, new Vector(west, yIndex + 1)).equal(targetColor)) {
+            if (!colorFromPixel(cx, new Vector(west, yIndex + 1)).equal(replaceColor)) {
+                console.log(targetColor.toString());
+                console.log(colorFromPixel(cx, new Vector(west, yIndex + 1)).toString());
+            }
+        }
         if (yIndex < cx.canvas.height - 1 && colorFromPixel(cx, new Vector(west, yIndex + 1)).equal(targetColor)) {
             floodFill(new Vector(west, yIndex + 1), targetColor, replaceColor, cx);
         }
